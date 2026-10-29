@@ -1,0 +1,11 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui,sans-serif;max-width:720px;margin:0 auto;padding:24px 16px;line-height:1.55;background:#fff;color:#141414}h1{color:#D9141C}a{color:#D9141C}code{background:#f3f3ee;padding:2px 6px;border-radius:4px;word-break:break-all}</style><title>Autorización de TikTok</title></head><body>
+<h1>Autorización de TikTok</h1>
+<div id="r">Leyendo…</div>
+<script>
+var p=new URLSearchParams(location.search),c=p.get("code"),e=p.get("error");
+var r=document.getElementById("r");
+if(c){r.innerHTML='<p>Listo. Copiá este código y pasáselo a Claude (vence en unos minutos):</p><p><code id="c"></code></p><button onclick="navigator.clipboard.writeText(document.getElementById(\'c\').textContent);this.textContent=\'Copiado\'">Copiar</button>';document.getElementById("c").textContent=c;}
+else if(e){r.textContent="TikTok devolvió un error: "+e+" "+(p.get("error_description")||"");}
+else{r.textContent="Esta página recibe la autorización de TikTok. No hay nada para ver acá.";}
+</script>
+</body></html>
